@@ -2,6 +2,7 @@ import React from "react";
 import Layout from "./Layout";
 import { useState } from "react"
 import { useEffect } from "react";
+// import "./Style_user.css"
 
 
 const User = (props) => {

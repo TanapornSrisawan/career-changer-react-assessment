@@ -3,6 +3,7 @@ import Layout from "./Layout";
 import { useState } from "react"
 import { useEffect } from "react";
 
+
 const Admin = (props) => {
     const [name, setName] = useState('');
     const [lastname, setLastname] = useState('');
@@ -23,13 +24,25 @@ const Admin = (props) => {
         const deleteList = [...props.employees];
         deleteList.splice(index, 1)
         props.setEmployees(deleteList)
-
     }
+
+    const deleteAll = () => {
+        props.setEmployees([]);
+    };
+
+    useEffect(() => {
+        setName('');
+        setLastname('');
+        setPosition('');
+    }, [props.employees]);
+
 
     return (
         <>
             <div>
+                <br />
                 <label>Create User Here</label>
+                <br />
                 <input
                     onChange={(event) => {
                         setName(event.target.value);
@@ -65,17 +78,19 @@ const Admin = (props) => {
                     <th>Position</th>
                     <th>Action</th>
                 </tr>
-                {props.employees.map((item) => {
+                {props.employees.map((item, index) => {
                     return (
                         <tr>
                             <td>{item.name}</td>
                             <td>{item.lastname}</td>
                             <td>{item.position}</td>
-                            <td><button onClick={deleteUser}>Delete</button></td>
+                            <td><button onClick={() => deleteUser(index)}>Delete</button></td>
                         </tr>
                     );
                 })}
             </table>
+            <br />
+            <button onClick={deleteAll}>Delete All</button>
         </>
 
     );

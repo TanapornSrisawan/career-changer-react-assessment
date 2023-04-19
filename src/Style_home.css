@@ -1,0 +1,16 @@
+/* Style Home */
+
+.home {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.buttonHome {
+  display: flex;
+  justify-content: center;
+  gap: 50px;
+  width: 900px;
+  height: 50px;
+}

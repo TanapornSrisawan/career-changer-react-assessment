@@ -4,7 +4,6 @@ import Admin from "./Admin";
 import User from "./User"
 
 
-
 const mockEmployees = [
   {
     id: 0,
@@ -43,15 +42,21 @@ const Home = () => {
   };
 
   return (
+
     <Layout>
-      <h1>Generation Thailand</h1>
-      {sector === "user" ? <h1>Home - User Assessment</h1> :
-        sector === "admin" ? <h1>Home - Admin Assessment</h1> : <h1>Home - React Assessment</h1>}
-      <button onClick={handleUserClick}>User Home sector</button>
-      <button onClick={handleAdminClick}>Admin Home sector</button>
-      {sector === "user" && <User employees={employees} />}
-      {sector === "admin" && <Admin employees={employees} setEmployees={setEmployees} />}
+      <div className='home'>
+        <h1>Generation Thailand</h1>
+        {sector === "user" ? <h1>Home - User Assessment</h1> :
+          sector === "admin" ? <h1>Home - Admin Assessment</h1> : <h1>Home - React Assessment</h1>}
+        <div className='buttonHome'>
+          <button onClick={handleUserClick}>User Home sector</button>
+          <button onClick={handleAdminClick}>Admin Home sector</button>
+          {sector === "user" && <User employees={employees} />}
+          {sector === "admin" && <Admin employees={employees} setEmployees={setEmployees} />}
+        </div>
+      </div>
     </Layout>
+
   )
 }
 
